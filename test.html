@@ -13,7 +13,63 @@
 <link rel="dns-prefetch" href="http://mvvideo2.meitudata.com/">    	<link rel="stylesheet" type="text/css" href="fb_share_files/meipai.css">
         <link rel="stylesheet" type="text/css" href="fb_share_files/emoji.css">
 <link rel="canonical" href="http://www.meipai.com/media/343447889"><style media="screen" type="text/css">#videoContent {visibility:hidden}</style></head>
-            
+<script>
+	
+	var subsrc = "";
+    var wx_forward_url = location.href;
+    /*
+    if (subsrc != "1") {
+    	wx_forward_url += "&s=1";
+    }*/
+    var dataForWeixin={
+          appId: 'wxaadbab9d13edff20',
+          MsgImg: "http://u5.a.yximgs.com/upic/2015/08/03/19/BMjAxNTA4MDMxOTMzMzNfNTU3MDMwNDdfMzI2NTI2NjU5XzFfMw==.jpg",
+          TLImg: "http://u5.a.yximgs.com/upic/2015/08/03/19/BMjAxNTA4MDMxOTMzMzNfNTU3MDMwNDdfMzI2NTI2NjU5XzFfMw==.jpg",
+          url: wx_forward_url,
+          
+          timeline_title: "第一次跟媳妇合作，还没让她露脸\n\n@鸡西将军文身馆(O49424975) @将军纹身馆—小宝(O31015745) @将军纹身馆――助理(O20987537) @A.5591(O114132773) @将军纹身馆—阿霖(O8010170) @将军纹身馆☺小七(O2487775) @成总传媒~金三胖(O53400759)",
+          app_title: "快手，有点儿意思",
+          app_desc: "第一次跟媳妇合作，还没让她露脸\n\n@鸡西将军文身馆(O49424975) @将军纹身馆—小宝(O31015745) @将军纹身馆――助理(O20987537) @A.5591(O114132773) @将军纹身馆—阿霖(O8010170) @将军纹身馆☺小七(O2487775) @成总传媒~金三胖(O53400759)",
+          callback: function(){}
+    };
+    (function(){
+        var onBridgeReady=function(){
+            WeixinJSBridge.on('menu:share:appmessage', function(argv){
+        		
+                WeixinJSBridge.invoke('sendAppMessage', {
+                	"appid": dataForWeixin.appId,
+                    "img_url": dataForWeixin.TLImg,
+                    "link": dataForWeixin.url,
+                    "title": dataForWeixin.app_title,
+                    "desc": dataForWeixin.app_desc 
+                }, function(res){});
+            });
+            WeixinJSBridge.on('menu:share:timeline', function(argv){
+                WeixinJSBridge.invoke('shareTimeline', {
+                    "appid": dataForWeixin.appId,
+                    "img_url": dataForWeixin.TLImg,
+                    "link": dataForWeixin.url,
+                    "title": dataForWeixin.timeline_title,
+                    "desc": dataForWeixin.app_desc 
+                }, function(res){});
+            });
+            WeixinJSBridge.on('menu:share:weibo', function(argv){
+                WeixinJSBridge.invoke('shareWeibo',{
+                    "content": dataForWeixin.timeline_title + ' ' + dataForWeixin.url,
+                    "img_url": dataForWeixin.MsgImg,
+                    "url": dataForWeixin.url
+                }, function(res){});
+            });
+        };
+        if(document.addEventListener){
+            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+        }else if(document.attachEvent){
+            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+        } 
+    })();
+
+</script>
     
 <body>
 
