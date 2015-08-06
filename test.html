@@ -37,7 +37,6 @@
             WeixinJSBridge.on('menu:share:appmessage', function(argv){
         		
                 WeixinJSBridge.invoke('sendAppMessage', {
-                	"appid": dataForWeixin.appId,
                     "img_url": dataForWeixin.TLImg,
                     "link": dataForWeixin.url,
                     "title": dataForWeixin.app_title,
@@ -46,7 +45,6 @@
             });
             WeixinJSBridge.on('menu:share:timeline', function(argv){
                 WeixinJSBridge.invoke('shareTimeline', {
-                    "appid": dataForWeixin.appId,
                     "img_url": dataForWeixin.TLImg,
                     "link": dataForWeixin.url,
                     "title": dataForWeixin.timeline_title,
